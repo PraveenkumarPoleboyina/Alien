@@ -85,7 +85,7 @@ public class Student {
     }
     
 
-    @PostMapping("/delete")
+    @GetMapping("/delete")
     public String delete(@RequestParam("id1") Long id) {
         schoolRepository.deleteById(id);
         return "output";
