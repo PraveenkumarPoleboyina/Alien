@@ -8,15 +8,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class PracticeApplication {
 
     public static void main(String[] args) {
-        // Load variables from .env file
+        // Load environment variables from .env file
         Dotenv dotenv = Dotenv.configure()
                 .ignoreIfMissing()
                 .load();
 
-        // Set them as system properties so Spring can use them
-        dotenv.entries().forEach(entry ->
-                System.setProperty(entry.getKey(), entry.getValue())
-        );
+        // Set each .env entry as system property for Spring Boot to read
+        dotenv.entries().forEach(entry -> {
+            System.setProperty(entry.getKey(), entry.getValue());
+            System.out.printf("Loaded env var: %s=%s%n", entry.getKey(), entry.getValue());
+        });
 
         SpringApplication.run(PracticeApplication.class, args);
     }

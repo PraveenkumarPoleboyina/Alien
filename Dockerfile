@@ -14,14 +14,15 @@ RUN mvn clean package -DskipTests
 FROM eclipse-temurin:17-jdk
 WORKDIR /app
 
-# Install PostgreSQL client (optional, for debugging inside container)
-RUN apt-get update && apt-get install -y postgresql-client && rm -rf /var/lib/apt/lists/*
+# Remove PostgreSQL client install since you switched to MySQL
+# Instead, optionally install MySQL client if you want to debug inside container (optional)
+RUN apt-get update && apt-get install -y default-mysql-client && rm -rf /var/lib/apt/lists/*
 
 # Copy the built JAR from the build stage
 COPY --from=build /app/target/practice-0.0.1-SNAPSHOT.jar app.jar
 
-# Expose port
+# Expose port 8080
 EXPOSE 8080
 
-# Use environment variables (loaded at runtime via .env, no secrets here)
+# Run the Spring Boot application
 ENTRYPOINT ["java", "-jar", "app.jar"]

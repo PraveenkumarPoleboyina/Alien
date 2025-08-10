@@ -24,17 +24,21 @@ Thumbs.db
 *.swp
 *~
 
-# Environment files
+# Environment files (ignore actual secrets)
 .env
 *.env
 
-# Spring Boot config (avoid committing secrets)
+# Spring Boot config (ignore real config files containing secrets)
 src/main/resources/application.properties
 src/main/resources/application.yml
 
-# Ignore PostgreSQL dump files
+# But track example config files so others know what to configure
+!src/main/resources/application.properties.example
+!src/main/resources/application.yml.example
+!.env.example
+
+# Ignore PostgreSQL dump files (if you have any)
 *.sql
 
-# Ignore compiled files
+# Ignore compiled class files
 *.class
-.env
