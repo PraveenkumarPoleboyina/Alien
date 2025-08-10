@@ -17,7 +17,7 @@ public class Student {
         return "mainloginpage";  // loads templates/loginpage.html
     }
 
-    @GetMapping("/submit")
+    @PostMapping("/submit")
     public String submit(
             @RequestParam("username") String s1,
             @RequestParam("password") String s2,
@@ -37,12 +37,12 @@ public class Student {
 //    }
 
     @PostMapping("/add")
-    public String add(@RequestParam("id") Long id,
-                      @RequestParam("fullname") String fullname,
-                      @RequestParam("jobtitle") String jobtitle,
-                      @RequestParam("email") String email,
-                      @RequestParam("salary") String salary,
-                      @RequestParam("gender") String gender,
+    public String add(@RequestParam Long id,
+                      @RequestParam String fullname,
+                      @RequestParam String jobtitle,
+                      @RequestParam String email,
+                      @RequestParam String salary,
+                      @RequestParam String gender,
                       Model model) {
 
         if (schoolRepository.findById(id).isPresent()) {
@@ -72,19 +72,19 @@ public class Student {
 
 
     @PostMapping("/update")
-    public String update(@RequestParam("id") Long id,
-                         @RequestParam("fullname") String fullname,
-                         @RequestParam("jobtitle") String jobtitle,
-                         @RequestParam("email") String email,
-                         @RequestParam("salary") String salary,
-                         @RequestParam("gender") String gender) {
+    public String update(@RequestParam Long id,
+                         @RequestParam String fullname,
+                         @RequestParam String jobtitle,
+                         @RequestParam String email,
+                         @RequestParam String salary,
+                         @RequestParam String gender) {
 
         School updatedSchool = new School(id,fullname,jobtitle, email, salary, gender);
         schoolRepository.save(updatedSchool);
         return "output";
     }
 
-    @GetMapping("/delete")
+    @PostMapping("/delete")
     public String delete(@RequestParam("id1") Long id) {
         schoolRepository.deleteById(id);
         return "output";
