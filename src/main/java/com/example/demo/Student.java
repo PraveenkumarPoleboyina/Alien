@@ -17,7 +17,7 @@ public class Student {
         return "mainloginpage";  // loads templates/loginpage.html
     }
 
-    @PostMapping("/submit")
+    @GetMapping("/submit")
     public String submit(
             @RequestParam("username") String s1,
             @RequestParam("password") String s2,
