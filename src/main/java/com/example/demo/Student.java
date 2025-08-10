@@ -83,11 +83,7 @@ public class Student {
         schoolRepository.save(updatedSchool);
         return "output";
     }
-    @GetMapping("/googleba704f2f718e943f.html")
-    public String serveGoogleVerification() {
-        // Return the name of the html file under /static (without .html)
-        return "googleba704f2f718e943f";
-    }
+    
 
     @PostMapping("/delete")
     public String delete(@RequestParam("id1") Long id) {
