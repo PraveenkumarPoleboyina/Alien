@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden; /* Remove scrollbar */
+        }
+
+        h1 {
+            color: white;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .form-container {
+            display: flex;
+            gap: 40px;
+            padding: 10px 30px;
+        }
+
+        .form-box {
+            background-color: #c4c4c4;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            width: 270px;
+            box-sizing: border-box;
+        }
+
+        .form-box h3 {
+            text-align: center;
+            margin-bottom: 12px;
+            font-size: 18px;
+            color: #0a3d62;
+        }
+
+        label {
+            font-size: 14px;
+            display: block;
+            margin-top: 7px;
+        }
+
+        input[type="text"] {
+            padding: 6px;
+            margin-top: 4px;
+            width: 100%;
+            border-radius: 4px;
+            border: 1px solid #aaa;
+            font-size: 14px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 12px;
+        }
+
+        button, input[type="submit"] {
+            padding: 6px 12px;
+            background-color: #0a3d62;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 48%;
+            font-size: 14px;
+        }
+
+        button:hover, input[type="submit"]:hover {
+            background-color: #074278;
+        }
+
+        .right-side {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .right-box {
+            height: 210px;
+        }
+
+        .center-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .center-button form {
+            width: 100%;
+        }
+
+        .center-button input[type="submit"] {
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Record Management Portal</h1>
+
+<div class="form-container">
+
+    <!-- Add / Update Form Box -->
+    <div class="form-box">
+        <h3>Add / Update Record</h3>
+        <form method="post">
+            <label for="id">ID:</label>
+            <input type="text" name="id" id="id" required>
+
+            <label for="fullname">Full Name:</label>
+            <input type="text" name="fullname" id="fullname" required>
+
+            <label for="jobtitle">Job Title:</label>
+            <input type="text" name="jobtitle" id="jobtitle" required>
+
+            <label for="email">Email Address:</label>
+            <input type="text" name="email" id="email" required>
+
+            <label for="salary">Salary:</label>
+            <input type="text" name="salary" id="salary" required>
+
+            <label for="gender">Gender:</label>
+            <input type="text" name="gender" id="gender" required>
+
+            <div class="btn-group">
+                <button type="submit" formaction="/add">Add</button>
+                <button type="submit" formaction="/update">Update</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Right Side -->
+    <div class="right-side">
+
+        <!-- Search / Delete Box -->
+        <div class="form-box right-box">
+            <h3>Search / Delete Record by ID</h3>
+            <form method="get">
+                <label for="id1">Enter ID:</label>
+                <input type="text" name="id1" id="id1" required>
+
+                <div class="btn-group">
+                    <button type="submit" formaction="/byid">Get by ID</button>
+                    <button type="submit" formaction="/delete">Delete by ID</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- View All Records Box -->
+        <div class="form-box right-box">
+            <h3>View All Records</h3>
+            <div class="center-button">
+                <form method="get" th:action="@{/all}">
+                    <input type="submit" value="Click">
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

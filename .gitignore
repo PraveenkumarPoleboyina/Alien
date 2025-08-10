@@ -1,0 +1,40 @@
+# Ignore target build output
+/target/
+
+# Maven wrapper logs
+.mvn/wrapper/maven-wrapper.jar
+
+# IDE specific files
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*~
+
+# Environment files
+.env
+*.env
+
+# Spring Boot config (avoid committing secrets)
+src/main/resources/application.properties
+src/main/resources/application.yml
+
+# Ignore PostgreSQL dump files
+*.sql
+
+# Ignore compiled files
+*.class
+.env

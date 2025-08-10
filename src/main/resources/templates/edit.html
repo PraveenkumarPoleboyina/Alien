@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f4f4f4;
+        }
+
+        h2 {
+            text-align: center;
+            color: #0a3d62;
+        }
+
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            width: 50%;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 12px 20px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #0a3d62;
+            color: white;
+        }
+
+        td {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Member Details</h2>
+
+    <table>
+        <tr>
+            <th>Field</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>ID</td>
+            <td><span th:text="${school.id}"></span></td>
+        </tr>
+        <tr>
+            <td>Full Name</td>
+            <td><span th:text="${school.fullname}"></span></td>
+        </tr>
+        <tr>
+            <td>Job Title</td>
+            <td><span th:text="${school.jobtitle}"></span></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><span th:text="${school.email}"></span></td>
+        </tr>
+        <tr>
+            <td>Salary</td>
+            <td><span th:text="${school.salary}"></span></td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td><span th:text="${school.gender}"></span></td>
+        </tr>
+    </table>
+
+</body>
+</html>
